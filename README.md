@@ -23,9 +23,27 @@ Esta versión implementa las funciones centrales de diagnóstico pedagógico en 
    - Campo opcional confidencial sin registro de nombres ni correos.
    - Cada comentario queda asociado al tema activo de la sesión.
 
-5. **Persistencia y exportación:**
-   - Almacenamiento local mediante `localStorage` para evitar pérdidas al cerrar el navegador.
+5. **Exportación e Importación:**
    - Función para descargar los resultados en un archivo `.json` y reiniciar para una nueva clase.
 
 6. **Recomendación pedagógica con Gemini API:**
    - Generación de tres puntos concretos de repaso estructurados en base a los votos y comentarios recibidos.
+
+---
+
+## M2: Persistencia de datos en localStorage
+
+Esta versión garantiza que los datos de la sesión docente y estudiantil no se pierdan al cerrar o recargar el navegador:
+
+1. **Almacenamiento Local Aislado:**
+   - Clave única de almacenamiento: `'pulso_clase_v1_data'`.
+   - Persistencia de los temas de clase, conteo de votos (entendí, dudas, me perdí) y comentarios anónimos con hora de envío.
+
+2. **Lectura y Escritura Defensiva:**
+   - Validación estructural de esquema al parsear JSON desde el almacenamiento para evitar bloqueos por datos incompletos.
+   - Sincronización automática de estado ante cada voto recibido.
+
+3. **Gestión de Sesión y Nueva Clase:**
+   - Limpieza segura de contadores para iniciar un nuevo tema o grupo manteniendo la integridad del almacenamiento.
+   - Respaldo de seguridad mediante exportación directa a archivos `.json` descargables.
+
