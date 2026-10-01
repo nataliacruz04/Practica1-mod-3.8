@@ -94,5 +94,26 @@ Esta versión robustece la estabilidad de la aplicación evitando fallos inesper
    - Manejo de excepciones en la llamada a la API de Gemini mediante bloques `try/catch`.
    - Si la API externa no está disponible o la clave no está configurada, la interfaz muestra una advertencia en español con botón de reintento y carga alternativa de ejemplos fuera de línea, sin congelar la aplicación ni interrumpir las votaciones.
 
+---
+
+## M5: Inteligencia con salida estructurada JSON
+
+Esta versión incorpora el análisis pedagógico automatizado garantizando salidas estructuradas mediante el SDK oficial `@google/genai`:
+
+1. **Modelo de Última Generación:**
+   - Uso de `gemini-3.8-flash` configurado del lado del servidor Express (`/api/generar-repaso`).
+   - La API Key permanece protegida en variables de entorno del servidor sin exponerse al cliente web.
+
+2. **Esquema Estricto con `responseSchema`:**
+   - Se fuerza `responseMimeType: 'application/json'` con un esquema fuertemente tipado:
+     - `puntos_repaso`: Arreglo de cadenas de texto con exactamente tres recomendaciones docentes accionables.
+     - `resumen_diagnostico`: Cadena con la síntesis pedagógica del nivel de comprensión general.
+   - Elimina la necesidad de expresiones regulares frágiles o parseos propensos a error.
+
+3. **Módulo Cliente Tipado:**
+   - Módulo `src/services/geminiRepaso.ts` que valida el payload de entrada y comprueba la estructura de salida.
+   - Indicador de carga interactivo (*loading spinner*) y renderizado en tarjetas didácticas para el docente.
+
+
 
 
