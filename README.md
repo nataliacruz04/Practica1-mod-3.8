@@ -73,4 +73,26 @@ Esta versión optimiza la usabilidad y accesibilidad para estudiantes y docentes
 5. **Mensajes claros y sin tecnicismos:**
    - Avisos en español pedagógico natural tanto para confirmación de respuestas enviadas como para recordatorios de selección.
 
+---
+
+## M4: Validaciones y manejo de errores
+
+Esta versión robustece la estabilidad de la aplicación evitando fallos inesperados y guiando al usuario con claridad:
+
+1. **Validación de selección antes del envío:**
+   - Verificación estricta de que el estudiante haya pulsado una de las tres opciones (*Entendí*, *Dudas*, *Me perdí*) antes de procesar el voto.
+   - Si no se ha marcado ninguna opción, se muestra un mensaje de advertencia visible y accesible en lugar de una alerta invasiva (`window.alert`).
+
+2. **Sanitización y control de caracteres:**
+   - Límite controlado para los comentarios anónimos (máximo 500 caracteres) y para el tema de la clase.
+   - Eliminación de espacios en blanco redundantes y prevención de inyecciones de código.
+
+3. **Cálculo de métricas con protección contra división por cero:**
+   - La función `calcularPorcentajeSeguro` previene errores matemáticos o resultados `NaN` / `Infinity` cuando el total de votos es igual a 0.
+
+4. **Resiliencia ante fallos de conexión e Inteligencia Artificial:**
+   - Manejo de excepciones en la llamada a la API de Gemini mediante bloques `try/catch`.
+   - Si la API externa no está disponible o la clave no está configurada, la interfaz muestra una advertencia en español con botón de reintento y carga alternativa de ejemplos fuera de línea, sin congelar la aplicación ni interrumpir las votaciones.
+
+
 
