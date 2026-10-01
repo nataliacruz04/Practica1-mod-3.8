@@ -47,3 +47,30 @@ Esta versión garantiza que los datos de la sesión docente y estudiantil no se 
    - Limpieza segura de contadores para iniciar un nuevo tema o grupo manteniendo la integridad del almacenamiento.
    - Respaldo de seguridad mediante exportación directa a archivos `.json` descargables.
 
+---
+
+## M3: Experiencia de uso en celular y estado vacío
+
+Esta versión optimiza la usabilidad y accesibilidad para estudiantes y docentes en entornos móviles reales:
+
+1. **Operable desde 320 px de ancho:**
+   - Disposición en columna única vertical adaptable a cualquier tamaño de pantalla de celular.
+   - Eliminación de desbordes y scroll horizontal.
+   - Interacción fluida con una sola mano y botones táctiles dentro del alcance natural del pulgar (`min-h-[64px]`).
+
+2. **Legibilidad al sol y contraste reforzado:**
+   - Tamaño de fuente base de al menos 16 px en todas las etiquetas, avisos y botones (evita el zoom automático indeseado en navegadores móviles como Safari).
+   - Fondos y textos en contraste extremo (`#000000` / `#0f172a` sobre fondos claros) para visibilidad en aulas iluminadas o al aire libre.
+
+3. **Un solo botón principal por pantalla:**
+   - Jerarquía visual estricta: en la vista de votación, el único botón con énfasis primario sólido es *"Enviar Voto"*.
+   - Los botones auxiliares utilizan estilo secundario (*outline* y neutros) para evitar confusiones al presionar.
+
+4. **Estado vacío amigable y motivador:**
+   - Pantalla inicial guiada cuando no existen votos ni clases previas (`totalVotos === 0`).
+   - Mensaje claro con invitación a iniciar la clase y opción de cargar un ejemplo demostrativo sin conexión.
+
+5. **Mensajes claros y sin tecnicismos:**
+   - Avisos en español pedagógico natural tanto para confirmación de respuestas enviadas como para recordatorios de selección.
+
+
