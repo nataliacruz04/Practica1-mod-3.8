@@ -1,0 +1,6 @@
+{
+  "name": "Pulso Clase",
+  "description": "App para docentes y grupos de clase: detecta a tiempo quién comprendió, quién tiene dudas y quién se perdió con gráfico de barras y comentarios anónimos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
